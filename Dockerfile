@@ -14,6 +14,6 @@ COPY ./updatecerts /etc/cron.d/updatecerts
 
 VOLUME /etc/letsencrypt/
 
-EXPOSE 80 443
+EXPOSE 80 443 90001 90002
 
 ENTRYPOINT [ "/entrypoint.sh" ]
