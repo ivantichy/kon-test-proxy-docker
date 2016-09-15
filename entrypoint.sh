@@ -12,6 +12,11 @@ if [ \! -f  /etc/letsencrypt/live/jenkins.ivantichy.cz/privkey.pem ]; then
   openssl dhparam -rand - 2048 >> /etc/letsencrypt/live/jenkins.ivantichy.cz/cert.pem
 fi
 
+if [ \! -f  /etc/letsencrypt/live/stash.ivantichy.cz/privkey.pem ]; then
+  certbot certonly --standalone --break-my-certs -d stash.ivantichy.cz --renew-by-default --email ivan.tichy@gmail.com --agree-tos --standalone-supported-challenges tls-sni-01
+  openssl dhparam -rand - 2048 >> /etc/letsencrypt/live/stash.ivantichy.cz/cert.pem
+fi
+
 bash -c "/updatecert.sh"
 
 service nginx start
