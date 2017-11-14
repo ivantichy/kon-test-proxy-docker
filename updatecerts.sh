@@ -14,9 +14,9 @@ if [ "`cat /etc/letsencrypt/live/jenkins.ivantichy.cz/cert.pem | grep -c "BEGIN 
   service nginx restart
 fi
 
-if [ "`cat /etc/letsencrypt/live/stash.ivantichy.cz/cert.pem | grep -c "BEGIN DH PARAMETERS"`" == "0" ]; then
+if [ "`cat /etc/letsencrypt/live/bitbucket.ivantichy.cz/cert.pem | grep -c "BEGIN DH PARAMETERS"`" == "0" ]; then
   echo "generating DH"
-  openssl dhparam -rand - 2048 >> /etc/letsencrypt/live/stash.ivantichy.cz/cert.pem
+  openssl dhparam -rand - 2048 >> /etc/letsencrypt/live/bitbucket.ivantichy.cz/cert.pem
   service nginx restart
 fi
 
